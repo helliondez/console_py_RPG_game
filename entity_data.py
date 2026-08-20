@@ -1,0 +1,103 @@
+# Player selectable classes
+CLASS_TYPES = {
+    'warrior': {
+        'health':45,
+        'mana': 15,
+        'attack_power': 9,
+        'magic_power': 3,
+        'physical_defense': 11,
+        'magical_resistance': 10,
+        'attack_speed': 0.6,
+        'cast_speed': 0.5,
+        'accuracy': 0.65,
+        'dodge_rate': 0.15,
+        'critical_chance': 0.1,
+        'critical_multiplier': 2.5,
+    },
+    'rouge': {
+        'health': 23,
+        'mana': 20,
+        'attack_power': 7,
+        'magic_power': 4,
+        'physical_defense': 6,
+        'magical_resistance': 4,
+        'attack_speed': 0.7,
+        'cast_speed': 0.6,
+        'accuracy':0.7,
+        'dodge_rate': 0.25,
+        'critical_chance': 0.2,
+        'critical_multiplier': 2.5,
+    },
+    'archer': {
+        'health': 30,
+        'mana': 22,
+        'attack_power': 8,
+        'magic_power': 6,
+        'physical_defense': 7,
+        'magical_resistance': 7,
+        'attack_speed': 0.65,
+        'cast_speed': 0.55,
+        'accuracy': 0.7,
+        'dodge_rate': 0.1,
+        'critical_chance': 0.17,
+        'critical_multiplier': 2.5,
+        },
+    'mage': {
+        'health': 26,
+        'mana': 35,
+        'attack_power': 3,
+        'magic_power': 9,
+        'physical_defense': 4,
+        'magical_resistance': 7,
+        'attack_speed': 0.6,
+        'cast_speed': 0.75,
+        'accuracy': 0.6,
+        'dodge_rate': 0.05,
+        'critical_chance': 0.11,
+        'critical_multiplier': 2.5,
+    },
+}
+
+# Player slectable spieces
+SPIECES_TYPES = {
+    'human': {},
+    'dragcon': {},
+    'vulpien': {},
+    'kaddiska': {},
+}
+
+# Selectable enemies to fighting
+ENEMY_TYPES = {
+    'slime':{
+        'health': 15,
+        'mana': 8,
+        'attack_power': 12,
+        'magic_power': 5,
+        'physical_defense': 5,
+        'magical_resistance': 8,
+        'attack_speed': 0.5,
+        'cast_speed': 0.4,
+        'accuracy': 0.5,
+        'dodge_rate': 0.05,
+        'critical_chance': 0.0,
+        'critical_multiplier': 1.0,
+    },
+    'bat':{},
+    'zombie': {},
+    'test_mob': {
+        'health':10,
+        'mana': 999,
+        'attack_power': 1,
+        'magic_power': 1,
+        'physical_defense': 0,
+        'magical_resistance': 0,
+        'attack_speed': 1.0,
+        'cast_speed': 0.5,
+        'accuracy': 1.0,
+        'dodge_rate': 0.0,
+        'critical_chance': 0.1,
+        'critical_multiplier': 2.5,
+
+    },
+
+}
