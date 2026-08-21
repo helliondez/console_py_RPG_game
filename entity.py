@@ -1,5 +1,6 @@
 import random
 import sys
+import weapon_data
 
 # Allpurpose functional entity
 # These should be true and consistant for all players, enemies and even npcs
@@ -33,6 +34,8 @@ class Entity():
             targeted.health -= damage
             print(f'{self.name.capitalize()} landed a hit on {targeted.name.capitalize()} for {damage} damage.')
             if targeted.health <= 0:
+                targeted.drop_loot(self)
+                print(self.inventory)
                 targeted.death_check()
         elif hit_success == False:
             print(f'{self.name.capitalize()} missed.')
@@ -52,10 +55,13 @@ class Entity():
         dodge_chance = (target_dodge * 100) // 2 # halves dodge rate as a simple solution to make it harder for mobs that are low level to 100% dodge just because of low accuracy. NEEDS BETTER SOLUTION
         hit_outcome = random.randint(1, int(hit_rate))
         if hit_outcome >= dodge_chance:
-            success = True
+            return True
         elif hit_outcome <= dodge_chance:
-            success = False
-        return success
+            return False
+        else:
+            print('Error in determining dodge.')
+            sys.exit()
+            return False
 
 
 class Player(Entity):
@@ -75,6 +81,7 @@ class Player(Entity):
         self.inventory = []
 
     def printing_character(self) -> None:
+        '''Very simple function to display a few of the attributes the Player class has.'''
         print(f'Name: {self.name}\nClass: {self.class_role}\nSpieces: {self.spieces}\nLevel: {self.level}')
 
     # unsure if i need this but to handle gear equipping and make sure everything is where it should be
@@ -85,7 +92,17 @@ class Enemy(Entity):
     '''Handles the Enemy's creation and management'''
     def __init__(self, name: str, stats: dict):
         self.name = name
+        self.lootable_items = ['stick']
         super().__init__(stats)
 
-    def drop_loot(self):
-        pass
+    def drop_loot(self, killer):
+        if len(self.lootable_items) > 0:
+            return
+        else:
+            for drop in self.lootable_items:
+                print(drop, 'is being tested')
+
+                rng_number = random.randint(1, 100)
+                if rng_number <= weapon_data.stick[4]:
+                    print('adding to ')
+                    killer.inventory.append(drop)

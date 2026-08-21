@@ -7,13 +7,17 @@ from entity import Player, Enemy
 different_spieces = ' | '.join(entity_data.SPIECES_TYPES)
 different_classes = ' | '.join(entity_data.CLASS_TYPES)
 
+# Some of this might need to be reworked but who knows what or how i should do that.
 def main():
-    # This is aded now?
+    # Maybe this part can just be a new class that would handle this functionality.
     created_character = starting_character_creation()
+    # Create a player object using the above function.
     player_character = Player(created_character[0], created_character[1], created_character[2], created_character[3])
     player_character.printing_character()
+    # Create an enemy object.
     enemy_npc = Enemy('slime', entity_data.ENEMY_TYPES['slime'])
     print('\nBattle simulation now starting!\n')
+    # A temporary way to engage in simple combat for the time being for testing.
     while True:
         user_choice = input('Attack or Escape?\n > ')
         if user_choice.lower() == 'attack':
@@ -27,6 +31,7 @@ def main():
         print(f'Your health: {player_character.health}    Enemy health: {enemy_npc.health}')
 
 def starting_character_creation() -> list:
+    '''For prompting the user with a series of questions, to populate the required info to create Player() entity.'''
     # All questions get added here.
     questions = [
         f'What is you name?\n > ', 
@@ -67,6 +72,7 @@ def starting_character_creation() -> list:
     return list_of_answers
 
 def confirmation_check(user_input: str) -> bool:
+    '''Simple yes or no check'''
     set_confirmation = False
     user_input = user_input.capitalize()
     check_input = input(f'{user_input} is correct?\n > ')
